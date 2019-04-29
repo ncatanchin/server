@@ -19,16 +19,15 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const base = window.base
-let root
+let root = window.oc_webroot
 
-if (typeof base === "undefined") {
+if (typeof root === "undefined") {
 	root = location.pathname;
-	var pos = base.indexOf('/index.php/');
+	const pos = root.indexOf('/index.php/');
 	if (pos !== -1) {
-		root = base.substr(0, pos);
+		root = root.substr(0, pos);
 	} else {
-		root = base.substr(0, base.lastIndexOf('/'));
+		root = root.substr(0, root.lastIndexOf('/'));
 	}
 }
 
